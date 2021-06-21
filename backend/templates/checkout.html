@@ -1,0 +1,24 @@
+{% include "header.html" %} {% import "bootstrap/wtf.html" as wtf %}
+<!-- Feaature-->
+
+<section>
+  <div class="container">
+    <div class="row padding">
+      <div class="col-12">
+        <div class="card-body">
+          <h1>Checkout</h1>
+          <p class="card-text"></p>
+          <p>
+            Thank you for your purchase. Please provide your details so we can
+            ship terrible movies to your doorstep.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row padding">
+      <div class="col-6">{{wtf.quick_form(form)}}</div>
+    </div>
+  </div>
+</section>
+
+{% include "indexfooter.html" %}

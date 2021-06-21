@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Quicksand:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+.jumbotron {
+  background: #fdc830; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #f37335,
+    #fdc830
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #f37335,
+    #fdc830
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  color: whitesmoke;
+  margin-bottom: 0;
+  min-height: 560px !important;
+}
+
+.card {
+  margin: 10px 10px;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+}
+
+.seeall {
+  text-align: right;
+}
+
+h3,
+h1,
+h2 {
+  color: #000;
+  font-family: "Anton", sans-serif;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+}
+
+a {
+  color: #7c7c7d;
+}
+
+a:hover {
+  color: #4a4a4b;
+  text-decoration: none;
+}
+.card-img-top {
+  width: 180px;
+  height: 260px;
+}
+
+.nav1 {
+  background: #f37335;
+  min-height: 80px !important;
+  color: #000;
+}
+
+.navbar {
+  font-family: "Anton", sans-serif;
+  color: #000;
+}
+.nav2 {
+  background: white;
+  min-height: 10px !important;
+  color: #000;
+}
+
+.sticky-top.scrolled {
+  background-color: #fff !important;
+  transition: background-color 200ms linear;
+}
+
+.sticky-top.scrolled1 {
+  border-bottom: 3px solid #f37335;
+  transition: background-color 200ms linear;
+}
+
+.sticky-top.scrolled .nav-link {
+  color: #000;
+}
+
+.carousel-inner {
+  width: 100%;
+  max-height: 250px !important;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+}
+
+.black {
+  background-color: #000;
+  color: whitesmoke;
+  text-align: center;
+  font-family: "Anton", sans-serif;
+  font-size: 4em;
+}
+
+.black1 {
+  color: whitesmoke;
+  text-align: center;
+  font-family: "Anton", sans-serif;
+  font-size: 6em;
+}
+
+.topnav-right {
+  float: right;
+}
+
+footer {
+  background-color: #000;
+  color: grey;
+}
+
+.text-uppercase {
+  color: whitesmoke;
+}
+
+.break {
+  background: grey;
+}
+
+.footerlinks a {
+  color: grey;
+}
+
+.sidebar {
+  position: fixed;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.line {
+  padding-top: 50px;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+
+.card {
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.25);
+}
+
+.btn {
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  font-family: "Anton", sans-serif;
+  color: whitesmoke;
+  background-color: #f37335;
+}
+
+.btn-block {
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  font-family: "Anton", sans-serif;
+  color: whitesmoke;
+  background-color: #f37335;
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.genre-card:hover .card-text {
+  opacity: 1;
+  transition-delay: 0.3s;
+}
+
+.genre-card:hover {
+  background: #f37335;
+  transition-delay: 0.3s;
+}
+
+.genre-card:hover img {
+  opacity: 0;
+  transition-delay: 0.3s;
+}
+
+.genre-card-text {
+  opacity: 0;
+}
+
+.searchbox {
+  border-radius: 100vh;
+  height: 50px;
+}
+
+.card-title {
+  padding-top: 15px;
+}
+
+.small {
+  font-size: smaller;
+}
+
+.padding {
+  padding-top: 25px;
+}
+
+hr {
+  display: none;
+}
+
+.page-link {
+  color: #f37335;
+}
+
+.page-item {
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.25);
+}
+
+.page-item .page-link:hover {
+  color: #fff;
+  background-color: #f37335;
+  border-color: #f37335;
+}
+
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: #f37335;
+  border-color: #f37335;
+}
+
+.large {
+  height: 700px;
+}

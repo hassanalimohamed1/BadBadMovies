@@ -1,0 +1,53 @@
+{% include "header.html" %}
+<!-- Feaature-->
+<div class="text-center">
+  <div class="card-body">
+    <h1>Browse our collection of movies</h1>
+    <p class="card-text">
+      With great love, all the worst movies ever made in one place.
+    </p>
+  </div>
+</div>
+<div class="container padding">
+  <!-- Columns are always 50% wide, on mobile and desktop -->
+  <div class="row">
+    {% for movie in movies%}
+    <div class="col-6 padding">
+      <div class="card">
+        <img
+        class="card-img-top large"
+        src="{{url_for('static', filename='img/'+movie.image)}}"
+        alt="Card image cap"
+      />
+      </div>
+ 
+    </div>
+    <div class="col-6 padding">
+      <h4 class="card-title">{{movie.title}}</h4>
+      <h5 class="card-text">({{movie.year}})</h5>
+      <p class="card-text"> <strong>{{movie.rating}}/10</strong></p>
+      <p class="card-text">{{movie.genre}}</p>
+      <p class="card-text">Director: {{movie.director}}</p>
+      <p class="card-text">
+        <small class="text-muted"
+          >{{movie.description}}
+          </small
+        >
+      </p>
+      <p class="card-text">${{movie.price}}</p>
+      <div class="padding">
+        <div>
+          <form action="{{ url_for('main.order') }}">
+              <input type="hidden" id="movie_id" name="movie_id" value="{{ movie.id }}">
+              <input class="btn" type="submit" value="Add to Cart">
+          </form>
+    </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+    </div>
+  </div>
+</div>
+{% include "indexfooter.html" %}

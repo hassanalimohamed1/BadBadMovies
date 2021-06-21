@@ -1,0 +1,79 @@
+{% include "header.html" %}
+<div class="text-center padding">
+  <div class="card-body">
+    <h1>Shopping Cart</h1>
+    <p class="card-text">Your worst movies ready to be purchased.</p>
+    
+      <div class="row"></div>
+        <h5 class="mt-4">Total Price= {{ "$%.2f"|format(totalprice) }}</h5>
+
+
+      <div class="row justify-content-center">
+        <a href="{{ url_for('main.all') }}" class="btn">Browse</a><br />
+        <a href="{{ url_for('main.checkout') }}" class="btn">Checkout</a><br />
+        <a href="{{ url_for('main.deleteorder') }}" class="btn">Empty Basket</a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- display contents of user basket -->
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <!--Sidebar-->
+      <div class="col-sm-1"></div>
+
+      <!--Cards-->
+      <div class="col-sm-11">
+        <!--Moive Cards-->
+
+        <div class="container-fluid">
+          <!--Cards-->
+
+          <div class="container-fluid">
+            <div class="row">
+              {% for movie in order.movies%}
+              <div class="col-md-3">
+                <div class="card w-100">
+                  <div class="card-body">
+                    <img
+                      class="card-img-top"
+                      src="{{url_for('static', filename='img/'+movie.image)}}"
+                      alt="Card image cap"
+                    />
+                    <h5 class="card-title">{{movie.title}}</h5>
+                    <small class="card-text">({{movie.year}})</small>
+
+                    <p class="card-text">
+                      <small class="text-muted">{{movie.description }} </small>
+                    </p>
+                    <h5>{{ "$%.2f"|format(movie.price) }}</h5>
+                    <div class="padding">
+                      <!-- delete item button  -->
+                      <form
+                        method="POST"
+                        action="{{url_for('main.deleteorderitem')}}"
+                      >
+                        <input
+                          type="hidden"
+                          id="id"
+                          name="id"
+                          value="{{movie.id}}"
+                        />
+                        <input type="submit" value="Remove" class="btn mb-3" />
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include "indexfooter.html" %}

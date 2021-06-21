@@ -1,0 +1,153 @@
+{% include "header.html" %}
+<!-- Feaature-->
+<div class="text-center padding">
+  <div class="card-body">
+    <h1>Browse our collection of movies</h1>
+    <p class="card-text">
+      With great love, all the worst movies ever made in one place.
+    </p>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <!--Sidebar-->
+    <div class="col-sm-1">
+      <nav class="nav navbar flex-lg-column">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Title
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/aesc">Ascending</a>
+            <a class="dropdown-item" href="/desc">Descending</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/featured">Featured</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Genre
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/horror">Horror</a>
+            <a class="dropdown-item" href="/comedy">Comedy</a>
+            <a class="dropdown-item" href="/scifi">Sci-Fi</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/all">All Genres</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Year
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/oldest">Oldest</a>
+            <a class="dropdown-item" href="/newest">Newest</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/all">All Years</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Director
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/M.NightShyamalan"
+              >M. Night Shyamalan</a
+            >
+            <a class="dropdown-item" href="JeffWadlow">Jeff Wadlow</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/all">All Directors</a>
+          </div>
+        </li>
+      </nav>
+    </div>
+
+    <!--Cards-->
+    <div class="col-sm-11">
+      <!--Moive Cards-->
+
+      <div class="container-fluid">
+        <!--Cards-->
+
+        <div class="container-fluid">
+          <div class="row">
+            {% for movie in movies%}
+            <div class="col-md-3">
+              <div class="card w-100">
+                <div class="card-body">
+                  <img
+                    class="card-img-top"
+                    src="{{url_for('static', filename='img/'+movie.image)}}"
+                    alt="Card image cap"
+                  />
+                  <h5 class="card-title">{{movie.title}}</h5>
+                  <h6 class="card-text">({{movie.year}})</h6>
+                  <p class="card-text"><strong>{{movie.rating}}/10</strong></p>
+                  <p class="card-text">{{movie.genre}}</p>
+                  <p class="card-text">Director: {{movie.director}}</p>
+                  <p class="card-text">
+                    <small class="text-muted"
+                      >{{movie.description | truncate(90)}}...<a
+                        href="
+                        {{movie.title}}"
+                        >Read More</a
+                      ></small
+                    >
+                  </p>
+                  <p class="card-text">${{movie.price}}</p>
+                  <div class="padding">
+                    <div>
+                      <form action="{{ url_for('main.order') }}">
+                        <input
+                          type="hidden"
+                          id="movie_id"
+                          name="movie_id"
+                          value="{{ movie.id }}"
+                        />
+                        <input class="btn" type="submit" value="Add to Cart" />
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% include "indexfooter.html" %}
